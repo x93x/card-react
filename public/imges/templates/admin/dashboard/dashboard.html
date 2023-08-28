@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layout/main}">
+<head>
+  <meta charset="ISO-8859-1">
+  <title> Management System</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  <link th:href="@{/css/main.css}" type="text/css" rel="stylesheet" href="@{/css/main.css}"/>
+  <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+</head>
+<body class="body">
+  <div layout:fragment="content">
+    <div class="row mt-5" style="justify-content: center">
+      <div class="card border-info mb-3 mr-3" style="width: 20rem;">
+        <div class="card-header" style="color: #17a2b8;">Total Customers</div>
+        <div class="card-body">
+          <h5 class="card-title"th:text="*{customer.size()}" style="color: #17a2b8;">0+</h5>
+        </div>
+      </div>
+      <div class="card border-info mb-3 mr-3" style="width: 20rem;">
+        <div class="card-header" style="color: #17a2b8;">Total Products</div>
+        <div class="card-body">
+          <h5 class="card-title" th:text="*{product.size()}" style="color: #17a2b8;">0+</h5>
+        </div>
+      </div>
+      <div class="card border-info mb-3 mr-3" style="width: 20rem;">
+        <div class="card-header" style="color: #17a2b8;">Total value</div>
+        <div class="card-body">
+          <h5 class="card-title" th:text="*{totalValue}" style="color: #17a2b8;">0+</h5>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-md-6">
+        <h3 style="color: #17a2b8">Distribution based on city </h3>
+        <canvas id="myChartPie" style="width:100%;max-width:600px"></canvas>
+      </div>
+      <div class="col-md-6">
+        <h3 style="color: #17a2b8">Distribution based on gender </h3>
+        <canvas id="myChartPri" style="width:100%;max-width:600px"></canvas>
+      </div>
+    </div>
+    <div class="col-md-12 mt-5">
+      <h3 style="color: #17a2b8" class="mb-3">Sales </h3>
+      <canvas id="myChart1"></canvas>
+    </div>
+  </div>
+
+<script>
+  var xValues = ["male", "female"];
+  var yValues = [55, 45,0];
+  var barColors = ["blue","orange",];
+
+  new Chart("myChartPri", {
+    type: "bar",
+    data: {
+      labels: xValues,
+      datasets: [{
+        backgroundColor: barColors,
+        data: yValues
+      }]
+    },
+    options: {
+      legend: {display: false},
+      title: {
+        display: true,
+        text: "Distribution Based on Gender"
+      }
+    }
+  });
+</script>
+<script>
+  const primaryNav = document.querySelector('.primary-navigation')
+  const navToggle = document.querySelector(".mobile-nav-toggle")
+
+  navToggle.addEventListener('click', () => {
+    const visibility = primaryNav.getAttribute('data-visible')
+
+    if (visibility === "false") {
+      primaryNav.setAttribute('data-visible',true)
+      navToggle.setAttribute('aria-expanded', true)
+    }
+
+    else if (visibility === "true") {
+      primaryNav.setAttribute('data-visible', false)
+      navToggle.setAttribute('aria-expanded', false)
+    }
+  })
+</script>
+<script>
+  var xValues = ["Jeddah", "Riyadh", "Madina", "Hafer Albatin ", "Qassim"];
+  var yValues = [55, 49, 44, 24, 15];
+  var barColors = [
+    "#b91d47",
+    "#00aba9",
+    "#2b5797",
+    "#e8c3b9",
+    "#1e7145"
+  ];
+
+  new Chart("myChartPie", {
+    type: "pie",
+    data: {
+      labels: xValues,
+      datasets: [{
+        backgroundColor: barColors,
+        data: yValues
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: "Distribution Based on City"
+      }
+    }
+  });
+</script>
+<script>
+  var xyValues = [
+    {x:50, y:7},
+    {x:60, y:8},
+    {x:70, y:8},
+    {x:80, y:9},
+    {x:90, y:9},
+    {x:100, y:9},
+    {x:110, y:10},
+    {x:120, y:11},
+    {x:130, y:14},
+    {x:140, y:14},
+    {x:150, y:15}
+  ];
+
+  new Chart("myChart", {
+    type: "scatter",
+    data: {
+      datasets: [{
+        pointRadius: 4,
+        pointBackgroundColor: "rgb(0,0,255)",
+        data: xyValues
+      }]
+    },
+    options: {
+      legend: {display: false},
+      scales: {
+        xAxes: [{ticks: {min: 40, max:160}}],
+        yAxes: [{ticks: {min: 6, max:16}}],
+      }
+    }
+  });
+
+  new Chart("myChart1", {
+    type: "scatter",
+    data: {
+      datasets: [{
+        pointRadius: 4,
+        pointBackgroundColor: "rgb(0,0,255)",
+        data: xyValues
+      }]
+    },
+    options: {
+      legend: {display: false},
+      scales: {
+        xAxes: [{ticks: {min: 40, max:160}}],
+        yAxes: [{ticks: {min: 6, max:16}}],
+      }
+    }
+  });
+</script>
+<script th:src="@{../../../static/javascript/navActiveLink.js}"></script>
+</body>
+</html>

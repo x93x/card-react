@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title> Management System</title>
+<link th:href="@{/css/main.css}" type="text/css" rel="stylesheet" href="@{/css/main.css}"/>
+</head>
+<body class="body">
+	<div class="container">
+		<header class="primary-header flex">
+			<div class="logo">
+				<img src="assets/logo.png" alt="">
+			</div>
+			<button class="mobile-nav-toggle"
+					aria-controls="primary-navigation" aria-expanded="false">
+				<span class="sr-only">Menu</span></button>
+			<nav>
+				<ul id="primary-navigation" data-visible="false"
+					class="primary-navigation uppercase letter-spacing-2 fs-300 flex">
+					<li>
+						<a href="/" class="current-page">Home</a>
+					</li>
+					<li>
+						<a href="/">Stores</a>
+					</li>
+					<li>
+						<a href="/">Pricing</a>
+					</li>
+					<li>
+						<a href="/">Contact </a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+		<div class="content flex">
+			<div class="text">
+				<h4 class="letter-spacing-3 fs-400">NTG e-commerce app</h4>
+				<h1 class="ff-sans-cond fs-700" style="color: #17a2b8; margin-bottom: 1rem">Platform for e-commerce stores</h1>
+				<a href="register" style="background-color: #17a2b8; !important" class="button-65">Let's begin</a>
+				<p class="letter-spacing-3 fs-300"></p>
+			</div>
+		</div>
+
+		<div class="big-container">
+
+			<div class="box-container">
+				<div class="box">
+					<img src="images/brain.svg" alt="">
+
+					<h3>Placeholder</h3>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut.
+				</div>
+
+				<div class="box">
+					<img src="images/leaf.svg" alt="">
+
+					<h3>Placeholder</h3>
+
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut.
+					</p>
+				</div>
+				<div class="box">
+					<img src="images/earth.svg" alt="">
+
+					<h3>Placeholder</h3>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ut.
+					</p>
+
+				</div>
+			</div>
+		</div>
+
+
+
+		<div class = "main-container">
+			<section class = "first statements">
+				<div class = "text letter-spacing-3 fs-300">
+					<h3>
+						Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit
+					</h3>
+				</div>
+				<div class = "image">
+					<img src = "assets/scifi.jpeg">
+				</div>
+			</section>
+			<section class = "second statements">
+				<div class = "image">
+					<img src = "assets/michal-pech-sM8P7EW21vI-unsplash (1).jpg">
+				</div>
+				<div class = "text letter-spacing-3 fs-300">
+					<h3> Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</h3>
+				</div>
+			</section>
+			<section class = "third statements">
+				<div class = "text letter-spacing-3 fs-300">
+					<h3>
+						Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit
+					</h3>
+				</div>
+				<div class = "image">
+					<img src = "assets/devin-mcgloin-JST8XNXLGHQ-unsplash.jpg">
+				</div>
+			</section>
+		</div>
+
+		<footer>
+			<div class = "footer-container flex">
+				<div class="copyright">
+					Copyright Reserved by NTG - 2022
+				</div>
+<!--				<ul class="social">-->
+<!--					<li><a href="/"><i class='bx bxl-twitter'></i></li>-->
+<!--					<li><a href="/"><i class='bx bxl-linkedin-square'></i></li>-->
+<!--				</ul>-->
+			</div>
+		</footer>
+
+	</div>
+
+	<script>
+		const primaryNav = document.querySelector('.primary-navigation')
+		const navToggle = document.querySelector(".mobile-nav-toggle")
+
+		navToggle.addEventListener('click', () => {
+			const visibility = primaryNav.getAttribute('data-visible')
+
+			if (visibility === "false") {
+				primaryNav.setAttribute('data-visible',true)
+				navToggle.setAttribute('aria-expanded', true)
+			}
+
+			else if (visibility === "true") {
+				primaryNav.setAttribute('data-visible', false)
+				navToggle.setAttribute('aria-expanded', false)
+			}
+		})
+	</script>
+</body>
+</html>

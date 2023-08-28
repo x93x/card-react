@@ -1,0 +1,68 @@
+*{
+
+  margin: 0;
+  padding:0;
+}
+h1{
+
+    background-color: rgb(74, 71, 71);
+    color:white;
+    border-radius: 5px;
+    padding:10px;
+    width: 127%;
+    text-align: center;
+    
+}
+#ss{
+background-color: blueviolet;
+  width: 200px;
+  height: 250px;
+  margin: 0;
+  border: 2px rgb(104, 99, 99) solid;
+}
+body{
+  margin: auto;
+  /* text-align: center; */
+  width: 100%;
+  background-color: rgb(35, 33, 33);
+  
+  
+  
+}
+#card{
+
+  width: 1210px;
+}
+#root{
+
+  margin: auto;
+}
+#all{
+width: 80%;
+margin: auto;
+padding: 20px 20px 20px 200px;
+
+ 
+}
+#k{
+  
+  color: rgb(242, 242, 245);
+  display: inline-block;
+   width: 220px;
+  height: 350px; 
+  background-color:'';
+  margin: 10px 30px;
+  padding: 10px;
+  overflow: hidden;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+border: 2px rgba(95, 4, 93, 0.419) solid;
+
+}
+button{
+margin: 10px 1px;
+  width: 80%;
+  height:30px;
+  background-color: blueviolet;
+  color: aliceblue;
+  border: 2px rgb(240, 234, 223) solid;
+}
